@@ -40,11 +40,9 @@ pipeline {
         }
         stage('DAST - OWASP ZAP') {
             steps {
-                sh '''
-                python3 src/app.py &
-                sleep 5
-                zaproxy -cmd -quickurl http://localhost:5000 -quickprogress -port 8090
-                '''
+                sh 'venv/bin/python3 src/app.py &'
+                sh 'sleep 5'
+                sh 'zaproxy -cmd -quickurl http://localhost:5000 -quickprogress -port 8090'
             }
         }
         stage('Clean') {
