@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Tests unitaires') {
             steps {
-                sh 'venv/bin/pytest tests/'
+                sh 'PYTHONPATH=$WORKSPACE venv/bin/pytest tests/'
             }
         }
         stage('SAST - Bandit') {
