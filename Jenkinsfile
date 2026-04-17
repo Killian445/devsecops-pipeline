@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clonage') {
             steps {
-                git credentialsId: 'github-credentials', url: 'https://github.com/Killian445/devsecops-pipeline.git'
+                git branch: 'main', credentialsId: 'github-credentials', url: 'https://github.com/Killian445/devsecops-pipeline.git'
             }
         }
         stage('Setup') {
@@ -61,4 +61,4 @@ pipeline {
             echo "Pipeline échoué - faille détectée"
         }
     }
-}   
+}
